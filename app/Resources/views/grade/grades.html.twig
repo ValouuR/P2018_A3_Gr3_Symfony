@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyClass %}
+    hold-transition register-page
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center  ">Grades</h1>
+
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Comment</th>
+                <th>Edit</th>
+            </tr>
+
+        {% for grade in grades %}
+            <tr>
+                <td>{{ grade.lesson.title }}</td>
+                <td>{{ grade.user.username }}</td>
+                <td>{{ grade.grade }}</td>
+                <td>{{ grade.comment }}</td>
+                <td><a href="{{ path('grade_edit', { 'id': grade.id }) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <div class="login_center">
+            <button class="btn btn-default login_btn"><a href="{{ path('homepage') }}">Return</a></button>
+        </div>
+    </div>
+{% endblock %}

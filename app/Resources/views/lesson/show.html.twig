@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyClass %}
+    hold-transition register-page
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Lesson n°{{ lesson.id }}</h1>
+
+    <div class="container">
+        <h2>{{ lesson.title }}</h2>
+        <p class="italic">{{ lesson.summary }}</p>
+        <p>{{ lesson.content }}</p>
+        <p class="writer">Writer : {{ lesson.writer.username }}</p>
+
+        <div class="login_center">
+            <button class="btn btn-default login_btn"><a href="{{ path('lesson') }}">Return</a></button>
+        </div>
+    </div>
+{% endblock %}
